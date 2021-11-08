@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28803.916
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgrammingChallangeV3", "ProgrammingChallangeV3\ProgrammingChallangeV3.csproj", "{F1996360-0767-4BE8-89E2-3BEDCE3CB2BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProgrammingChallangeV3", "ProgrammingChallangeV3\ProgrammingChallangeV3.csproj", "{F1996360-0767-4BE8-89E2-3BEDCE3CB2BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgrammingChallangeV3.test", "ProgrammingChallangeV3.test\ProgrammingChallangeV3.test.csproj", "{03B09A2E-9E7D-4C57-BE34-5686BDC3BFA8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{F1996360-0767-4BE8-89E2-3BEDCE3CB2BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1996360-0767-4BE8-89E2-3BEDCE3CB2BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1996360-0767-4BE8-89E2-3BEDCE3CB2BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03B09A2E-9E7D-4C57-BE34-5686BDC3BFA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03B09A2E-9E7D-4C57-BE34-5686BDC3BFA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03B09A2E-9E7D-4C57-BE34-5686BDC3BFA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03B09A2E-9E7D-4C57-BE34-5686BDC3BFA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
