@@ -1,0 +1,142 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<script type="text/javascript">
+
+    function grabar() {
+
+        $('#exampleModal').modal('show');
+
+        $.ajax({
+            type: "POST",
+            url: "/home/Proceso",
+            dataType: 'json',
+            contentType: false,
+            processData: false,
+            data: "{'name':'" + name + "'}",
+
+            success: function (response) {
+                if (response.success) {
+
+                    console.log("true");
+                    RecorrerArregloArchivo(response);
+                    $('#exampleModal').modal('hide');
+
+                } else {
+
+                    console.log("false");
+                    RecorrerArregloArchivo(response);
+                    $('#exampleModal').modal('hide');
+                }
+            },
+            error: function (response) {
+
+                console.log("error");
+                console.log(response);
+            }
+
+        });
+
+
+    };
+
+    function RecorrerArregloArchivo(data) {
+
+        $("#tableArchivo").show();
+
+        var contador = 1;
+        data.forEach(function (element) {
+            var cadena = "";
+            cadena = cadena + "<tr>";
+            cadena = cadena + "<th>" + contador + "</th>";
+            cadena = cadena + "<td>" + element.pagE_TITEL + "</td>";
+            cadena = cadena + "<td>" + element.domaiN_CODE + "</td>";
+            cadena = cadena + "<td align='right'>" + element.cnt.toLocaleString('en') + "</td>";
+            cadena = cadena + "</tr>"
+
+            contador = contador + 1;
+
+            $("#bodyArchivo").append(cadena);
+
+        });
+
+    }
+
+</script>
+
+
+
+<div class="card">
+    <div class="card-header">
+        #Programming Challenge
+    </div>
+    <div class="card-body">
+
+        <p class="card-text">
+            The Wikimedia Foundation provides all pageviews for Wikipedia site since 2015 in machine-readable format.
+            The pageviews can be downloaded in gzip format and are aggregated per hour per page.
+            Each hourly dump is approximately 50MB in gzipped text file and is somewhere between 100MB and 250MB in size unzipped.
+        </p>
+
+        <ul>
+            <li>Create a command line application </li>
+            <li>Get data for last 5 hours </li>
+            <li>Calculate by the code the following SQL statement </li>
+            <li>ALL_HOURS table represent all files</li>
+            <li>SQL statement use just to provide you requirements do not use database in your solution</li>
+        </ul>
+
+        <button onclick="grabar()" class="btn btn-primary">Process</button>
+    </div>
+</div>
+
+
+<div id="tableArchivo" class="card mt-5" style="display:none">
+    <div class="card-header">
+        Top 100 most viewed sites
+    </div>
+    <div class="card-body">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">PAGE_TITLE</th>
+                    <th scope="col">DOMAIN_CODE </th>
+                    <th scope="col">CNT</th>
+                </tr>
+            </thead>
+            <tbody id="bodyArchivo"></tbody>
+        </table>
+
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Downloading</h5>
+
+            </div>
+            <div class="modal-body">
+                <div class="container">
+
+                    <div class="row" align="center">
+                        <h3>This process will take a several minutes</h3>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
